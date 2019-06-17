@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container-fluid">
+        <h1 class="display-3">Книги и авторы</h1>
+        <a href="/admin">
+            <button type="button" class="btn btn-outline-info">Админка</button>
+        </a>
+        <div class="row">
+            <div class="col" style="background-color:lavender;">
+                <div class="card">
+                    <table class="table table-dark table-striped">
+                        <thead>
+                        <tr>
+                            <th>Автор книги</th>
+                            <th>Название книги</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for lst in list %}
+                            <tr>
+                                <td>{{ lst.author.name }}</td>
+                                <td>
+                                    <ul>
+                                        {% for book in lst.book %}
+                                            <li>{{ book.name }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

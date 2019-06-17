@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container-fluid">
+        <h1 class="display-3">Книги и авторы (Админка)</h1>
+        <a href="/">
+            <button type="button" class="btn btn-outline-info">Главная</button>
+        </a>
+        <div class="row">
+            <div class="col" style="background-color:lavender;">
+                <div class="card">
+                    <h2 class="display-4">Книги</h2>
+                    <table class="table table-dark table-striped">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Название книги</th>
+                            <th>Автор книги</th>
+                            <th>
+                                <a href="/admin/book/create/">
+                                    <button type="button" class="btn btn-outline-success">Добавить</button>
+                                </a>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for book in books %}
+                            <tr>
+                                <td>{{ book.id }}</td>
+                                <td>{{ book.name }}</td>
+                                <td>{{ book.author.name }}</td>
+                                <td>
+                                    <a href="/admin/book/update/{{ book.id }}">
+                                        <button type="button" class="btn btn-outline-warning">Изменить</button>
+                                    </a>
+                                    <a href="/admin/book/del/{{ book.id }}">
+                                        <button type="button" class="btn btn-outline-danger">Удалить</button>
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col" style="background-color:lavender;">
+                <div class="card">
+                    <h2 class="display-4">Авторы</h2>
+                    <table class="table table-dark table-striped">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Автор книги</th>
+                            <th>Количество книг</th>
+                            <th><a href="/admin/author/create/">
+                                    <button type="button" class="btn btn-outline-success">Добавить</button>
+                                </a></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for author in authors %}
+                            <tr>
+                                <td>{{ author.id }}</td>
+                                <td>{{ author.name }}</td>
+                                <td>{{ author.book|length }}</td>
+                                <td>
+                                    <a href="/admin/author/update/{{ author.id }}">
+                                        <button type="button" class="btn btn-outline-warning">Изменить</button>
+                                    </a>
+                                    <a href="/admin/author/del/{{ author.id }}">
+                                        <button type="button" class="btn btn-outline-danger">Удалить</button>
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

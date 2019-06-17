@@ -1,3 +1,31 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+index:
+  path: /
+  controller: App\Controller\ListController::index
+
+indexAdmin:
+  path: /admin
+  controller: App\Controller\BookController::index
+
+createAuthor:
+  path: /admin/author/create/
+  controller: App\Controller\BookController::createUpdateAuthor
+
+updateAuthor:
+  path: /admin/author/update/{id}
+  controller: App\Controller\BookController::createUpdateAuthor
+
+delAuthor:
+  path: /admin/author/del/{id}
+  controller: App\Controller\BookController::delAuthor
+
+createBook:
+  path: /admin/book/create/
+  controller: App\Controller\BookController::createUpdateBook
+
+updateBook:
+  path: /admin/book/update/{id}
+  controller: App\Controller\BookController::createUpdateBook
+
+delBook:
+  path: /admin/book/del/{id}
+  controller: App\Controller\BookController::delBook

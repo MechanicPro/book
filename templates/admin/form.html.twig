@@ -1,0 +1,18 @@
+{% extends '../base.html.twig' %}
+{% block body %}
+    <div class="container-fluid">
+        <div class="row" style="height:100vh">
+            <div class="col" style="background-color:lavender;"></div>
+            <div class="col" style="background-color:lavender;">
+                <div class="card" style="width:400px">
+                    <div class="card-body">
+                        {{ form_start(form) }}
+                        {{ form_widget(form) }}
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+            <div class="col" style="background-color:lavender;"></div>
+        </div>
+    </div>
+{% endblock %}
