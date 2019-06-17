@@ -26,19 +26,6 @@ class ListController extends AbstractController
                 ];
         }
 
-//        foreach ($list as $key=>$val)
-//        {
-//            echo "<pre>";
-//            var_dump($key);
-//            echo "</pre>";
-//            echo "<hr>";
-//            echo "<pre>";
-//            var_dump($val);
-//            echo "</pre>";
-//        }
-//
-//        exit;
-
         return $this->render(
             'list/list.html.twig',
             [
